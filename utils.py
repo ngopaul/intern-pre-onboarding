@@ -53,13 +53,13 @@ def find_next_nodes(tree_content, tree_status):
         if current_node_name in children:
             parent_index = children.index(current_node_name)
             if parent_status[parent_index]:
-                del parent_status[parent_index]
                 if not tree_status[i]:
                     result.append(current_node)
+            del parent_status[parent_index]
             children.remove(current_node_name)
             children.extend(current_node_children)
             parent_status.extend([tree_status[i]] * len(current_node_children))
-    return result[1:]
+    return result
     
 #     if testOverride == 2:
 #         return [

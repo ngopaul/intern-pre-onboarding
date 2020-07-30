@@ -42,7 +42,7 @@ def find_next_nodes(tree_content, tree_status):
             A list of the Nodes which are the next Nodes to complete. Every Node is a next_node if
             all of its parent Nodes have been completed, or it has no parent Nodes.
     """
-    if !len(tree_content):
+    if not len(tree_content):
         return []
     
     result, parent_status, children = [], [1], [tree_content[0][0]]
@@ -52,13 +52,14 @@ def find_next_nodes(tree_content, tree_status):
         current_node_children = current_node[-1]
         if current_node_name in children:
             parent_index = children.index(current_node_name)
-            if (parent_status[parent_index]):
-                parent_status.del(parent_index)
-                result.append(current_node)
+            if parent_status[parent_index]:
+                del parent_status[parent_index]
+                if not tree_status[i]:
+                    result.append(current_node)
             children.remove(current_node_name)
             children.extend(current_node_children)
-            parent_status.extend(tree_status[i] * len(current_node_children))
-    return result
+            parent_status.extend([tree_status[i]] * len(current_node_children))
+    return result[1:]
     
 #     if testOverride == 2:
 #         return [

@@ -22,10 +22,10 @@ if __name__ == "__main__":
     culture5_node = ["culture5", "culture", "question", ["What leadership principle do door desks represent?", "frugality"], 100, ["culture6"]]
     culture6_node = ["culture6", "culture", "resource", "Read about amazon affinity groups at the link tiny U R L dot com/alexa-intern-5", 0, ["end"]]
     
-    bookmarks0_node = ["bookmarks0", "bookmarks", "resource", "Bookmark this link: I T .amazondot com for I T help.", 0, ["bookmarks1"]]
+    bookmarks0_node = ["bookmarks0", "bookmarks", "resource", "Bookmark this link: I T dot amazon dot com for I T help.", 0, ["bookmarks1"]]
     bookmarks1_node = ["bookmarks1", "bookmarks", "resource", "Bookmark security.a2zdot com with the number 2. This site is for security breach reporting. You cannot access this site outside of the amazon network.", 0, ["bookmarks2"]]
-    bookmarks2_node = ["bookmarks2", "bookmarks", "resource", "You are halfway done with bookmarks! Bookmark A T O Z .amazon.work for information about perks, pay, and contact information. You will be able to access this site after creating your amazon login credentials on Day One.", 0, ["bookmarks3"]]
-    bookmarks3_node = ["bookmarks3", "bookmarks", "resource", "Bookmark phonetool.amazondot com. This is Amazon's internal directory of employees which you can only access on the Amazon network.", 0, ["end"]]
+    bookmarks2_node = ["bookmarks2", "bookmarks", "resource", "You are halfway done with bookmarks! Bookmark A T O Z dot amazon dot work for information about perks, pay, and contact information. You will be able to access this site after creating your amazon login credentials on Day One.", 0, ["bookmarks3"]]
+    bookmarks3_node = ["bookmarks3", "bookmarks", "resource", "Bookmark phone tool dot amazon dot com. This is Amazon's internal directory of employees which you can only access on the Amazon network.", 0, ["end"]]
     
     technical0_node = ["technical0", "technical", "resource", "Review terminal commands at this URL. tiny U R L dot com/alexa-intern-4", 0, ["technical1"]]
     technical1_node = ["technical1", "technical", "question", ["Which linux command displays a manual for a given command name?", "man"], 100, ["technical2"]]

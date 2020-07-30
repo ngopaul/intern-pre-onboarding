@@ -22,8 +22,8 @@ if __name__ == "__main__":
     culture5_node = ["culture5", "culture", "question", ["What leadership principle do door desks represent?", "frugality"], 100, ["culture6"]]
     culture6_node = ["culture6", "culture", "resource", "Read about amazon affinity groups at the link tiny U R L dot com/alexa-intern-5", 0, ["end"]]
     
-    bookmarks0_node = ["bookmarks0", "bookmarks", "resource", "Bookmark this link: I T dot amazon dot com for I T help.", 0, ["bookmarks1"]]
-    bookmarks1_node = ["bookmarks1", "bookmarks", "resource", "Bookmark security.a2zdot com with the number 2. This site is for security breach reporting. You cannot access this site outside of the amazon network.", 0, ["bookmarks2"]]
+    bookmarks0_node = ["bookmarks0", "bookmarks", "resource", "Bookmark this link: I T dot amazon dot com, for I T help", 0, ["bookmarks1"]]
+    bookmarks1_node = ["bookmarks1", "bookmarks", "resource", "Bookmark security dot A 2 Z dot com, with the number 2. This site is for security breach reporting. You cannot access this site outside of the amazon network.", 0, ["bookmarks2"]]
     bookmarks2_node = ["bookmarks2", "bookmarks", "resource", "You are halfway done with bookmarks! Bookmark A T O Z dot amazon dot work for information about perks, pay, and contact information. You will be able to access this site after creating your amazon login credentials on Day One.", 0, ["bookmarks3"]]
     bookmarks3_node = ["bookmarks3", "bookmarks", "resource", "Bookmark phone tool dot amazon dot com. This is Amazon's internal directory of employees which you can only access on the Amazon network.", 0, ["end"]]
     

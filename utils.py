@@ -1,6 +1,11 @@
-import logging import os import boto3 from botocore.exceptions import ClientError def create_presigned_url(object_name):
+import logging
+import os
+import boto3 from botocore.exceptions
+import ClientError
+def create_presigned_url(object_name):
     """Generate a presigned URL to share an S3 object with a capped expiration of 60 seconds
-    :param object_name: string return: Presigned URL as string. If error, returns None.
+    :param object_name: string
+    return: Presigned URL as string. If error, returns None.
     """
     s3_client = boto3.client('s3',
                              region_name=os.environ.get('S3_PERSISTENCE_REGION'),
@@ -15,7 +20,9 @@ import logging import os import boto3 from botocore.exceptions import ClientErro
         logging.error(e)
         return None
     # The response contains the presigned URL
-    return response def find_next_nodes(tree_content, tree_status, testOverride=0):
+    return response
+
+def find_next_nodes(tree_content, tree_status):
     """Find the next nodes (for which all parents have been completed) based on the tree_content
     and tree_status.
     Behavior:
@@ -35,19 +42,38 @@ import logging import os import boto3 from botocore.exceptions import ClientErro
             A list of the Nodes which are the next Nodes to complete. Every Node is a next_node if
             all of its parent Nodes have been completed, or it has no parent Nodes.
     """
-    if testOverride == 2:
-        return [
-            ['culture1', 'culture', 'question',
-                ['Which leadership principle involves starting with the customer and working backwards?', 'customer obsession'],
-                100, ['end']
-            ]
-        ]
-    elif testOverride == 3:
-        return [
-            ['end', 'end', 'end', 'Congratulations on finishing the course!', 0, []]
-        ]
-    return [['culture0', 'culture', 'resource', 'https://www.amazon.jobs/en/principles', 0, ['culture1']]] def 
-get_choices_prompt(session_attributes, tree_content):
+    if !len(tree_content):
+        return []
+    
+    result, parent_status, children = [], [1], [tree_content[0][0]]
+    for i in range(len(tree_content)):
+        current_node = tree_content[i]
+        current_node_name = current_node[0]
+        current_node_children = current_node[-1]
+        if current_node_name in children:
+            parent_index = children.index(current_node_name)
+            if (parent_status[parent_index]):
+                parent_status.del(parent_index)
+                result.append(current_node)
+            children.remove(current_node_name)
+            children.extend(current_node_children)
+            parent_status.extend(tree_status[i] * len(current_node_children))
+    return result
+    
+#     if testOverride == 2:
+#         return [
+#             ['culture1', 'culture', 'question',
+#                 ['Which leadership principle involves starting with the customer and working backwards?', 'customer obsession'],
+#                 100, ['end']
+#             ]
+#         ]
+#     elif testOverride == 3:
+#         return [
+#             ['end', 'end', 'end', 'Congratulations on finishing the course!', 0, []]
+#         ]
+#     return [['culture0', 'culture', 'resource', 'https://www.amazon.jobs/en/principles', 0, ['culture1']]]
+
+def get_choices_prompt(session_attributes, tree_content):
     next_nodes_string = ""
     for next_node in session_attributes['next_nodes']:
         next_nodes_string += next_node[1] + ". " # add all of the categories
